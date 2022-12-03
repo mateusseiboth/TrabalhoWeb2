@@ -70,15 +70,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
                     <table class="table table-bordered text-white table-responsive" style="margin-top: 15px;">
                         <thead style="color:black;">
                             <tr>
+                                <th style="text-align: center">Imagem</th>
                                 <th>ID</th>
                                 <th style="text-align: center;">Nome</th>
                                 <th style="text-align: center;">Tipo</th>
+                                
                             </tr>
                         </thead>
 
                         <tbody class="text-black">
-                            <?php foreach ($usuarios as $usuario) { ?>
+                            <?php foreach ($usuarios as $usuario) {
+                                $foto = $usuario['foto'] != "" ? $usuario['foto'] : 'anonimo.png';
+
+                            ?>
                                 <tr>
+                                    <?php echo "<td style='text-align: center;'><img widht='50' height='50' src='img/$foto'></td>"; ?>
                                     <td><?= $usuario['id'] ?></td>
                                     <td><?= $usuario['username'] ?></td>
                                     <?php if ($usuario['nivel'] == 1) { ?>
