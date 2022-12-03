@@ -17,10 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
 ?>
 <div class="container-fluid">
 
-    <div class="row">
-
-
-        <div class="bg-dark text-white">
+    <div class="col">
+        <div class=" text-white">
             <div class="card col-4" style="margin-top: 1%;">
                 <div class="bg-dark card-header">
                     <h3 class="card-title">Cadastro de usuário</h3>
@@ -64,11 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
                 </div>
             </div>
 
-
-
-        </div>
-
-        <div class="bg-dark text-white">
             <div class="card col-4" style="margin-top: 1%;">
                 <div class="bg-dark card-header">
                     <h3 class="card-title">Listagem de usuários</h3>
@@ -105,10 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
                 </div>
             </div>
 
-
-
         </div>
-
 
     </div>
 </div>

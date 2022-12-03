@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //chamada após submit
 
 ?>
 
-<div class="bg-dark text-white d-flex jumbotron justify-content-center">
+<div class=" text-white d-flex jumbotron justify-content-center">
     <div class="card col-md-6" style="margin-top: 5%;">
         <div class="bg-dark card-header">
             <h3 class="card-title">Cadastro de empresa</h3>
