@@ -16,7 +16,7 @@ if ($empresas == null) {
 
 
 
-    <div class="bg-dark text-white d-flex jumbotron justify-content-center">
+    <div class="text-white d-flex jumbotron justify-content-center">
         <div class="card col-md-8" style="margin-top: 5%;">
             <div class="bg-dark card-header">
                 <h3 class="card-title">Empresas cadastradas</h3>

@@ -7,6 +7,7 @@
     <title>ACCAP Management v0.1</title>
     <link href="css/font-awesome.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet" />
     <script src="js/bootstrap.min.js"></script>
 
     <?php session_start();
@@ -14,7 +15,6 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">ACCAP</a>

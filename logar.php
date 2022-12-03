@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
 ?>
 
 <div class="jumbotron d-flex justify-content-center">
-    <div class="bg-dark text-white col-md-3">
+    <div class=" text-white col-md-3">
         <div class="card" style="margin-top: 25%;">
             <div class="card-header bg-dark">
                 <h3>Login</h3>
