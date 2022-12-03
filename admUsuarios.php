@@ -10,8 +10,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
     $senha = $_POST['senha'];
     $tipo = $_POST['tipo'];
 
+    $arquivo = $_FILES['arquivo'];
 
-    cadastrarUsuario($username, $senha, $tipo);
+  if ($arquivo['name']!="") {
+    $arquivoTemporario = $arquivo['tmp_name'];
+    $extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
+    $nomeArquivo = sha1(time()).".".$extensao;
+    move_uploaded_file($arquivoTemporario, "img/".$nomeArquivo);
+    $foto = $nomeArquivo;
+  }
+
+
+    cadastrarUsuario($username, $senha, $tipo, $foto);
 }
 
 ?>
@@ -24,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
                     <h3 class="card-title">Cadastro de usuário</h3>
                 </div>
                 <div class="card-body list-group list-group-flush" style="margin: 8px;">
-                    <form accept-charset="UTF-8" role="form" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+                    <form accept-charset="UTF-8" role="form" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post" enctype="multipart/form-data">
                         <fieldset>
                             <div class="col-auto" style="margin-top: 2px;">
                                 <div class="input-group mb-3">
@@ -35,6 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
                                 <div class="input-group mb-3">
                                     <div class="input-group-text"><i class="fa fa-address-card fa-fw "></i></div>
                                     <input type="text" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <input type="file" class=" form-control" id="arquivo" name="arquivo" accept="image/*">
                                 </div>
 
                                 <div class="input-group col-auto mb-3" style="color: black;">
@@ -74,13 +88,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
                                 <th>ID</th>
                                 <th style="text-align: center;">Nome</th>
                                 <th style="text-align: center;">Tipo</th>
-                                
+
                             </tr>
                         </thead>
 
                         <tbody class="text-black">
                             <?php foreach ($usuarios as $usuario) {
-                                $foto = $usuario['foto'] != "" ? $usuario['foto'] : 'anonimo.png';
+                                $foto = $usuario['imagem'] != "" ? $usuario['imagem'] : 'anonimo.png';
 
                             ?>
                                 <tr>
@@ -107,6 +121,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
         </div>
 
     </div>
+
+
 </div>
 
 
