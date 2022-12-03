@@ -157,9 +157,9 @@ function atualizaEmpresa($id, $nome, $telefone, $email, $declara, $cnpj) {
     
 }
 
-function cadastrarUsuario($username, $senha, $tipo) {
+function cadastrarUsuario($username, $senha, $tipo, $foto) {
     include 'conecta.php';
-    $query = "insert into usuario (username, senha, nivel) values ('{$username}', '{$senha}', '{$tipo}')";
+    $query = "insert into usuario (username, senha, nivel, imagem) values ('{$username}', '{$senha}', '{$tipo}', '{$foto}')";
     $result = mysqli_query($conexao, $query);
 
     if ($result) {

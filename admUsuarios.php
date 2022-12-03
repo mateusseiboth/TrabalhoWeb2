@@ -10,8 +10,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
     $senha = $_POST['senha'];
     $tipo = $_POST['tipo'];
 
+    $arquivo = $_FILES['arquivo'];
 
-    cadastrarUsuario($username, $senha, $tipo);
+  if ($arquivo['name']!="") {
+    $arquivoTemporario = $arquivo['tmp_name'];
+    $extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
+    $nomeArquivo = sha1(time()).".".$extensao;
+    move_uploaded_file($arquivoTemporario, "img/".$nomeArquivo);
+    $foto = $nomeArquivo;
+  }
+
+
+    cadastrarUsuario($username, $senha, $tipo, $foto);
 }
 
 ?>
@@ -38,7 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
                                 </div>
 
                                 <div class="input-group mb-3">
-                                    <input type="file" class=" form-control" id="arquivo" name="arquivo" accept="img/*">                                </div>
+                                    <input type="file" class=" form-control" id="arquivo" name="arquivo" accept="image/*">
+                                </div>
 
                                 <div class="input-group col-auto mb-3" style="color: black;">
                                     <div class="form-check form-check-inline">
@@ -77,13 +88,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
                                 <th>ID</th>
                                 <th style="text-align: center;">Nome</th>
                                 <th style="text-align: center;">Tipo</th>
-                                
+
                             </tr>
                         </thead>
 
                         <tbody class="text-black">
                             <?php foreach ($usuarios as $usuario) {
-                                $foto = $usuario['foto'] != "" ? $usuario['foto'] : 'anonimo.png';
+                                $foto = $usuario['imagem'] != "" ? $usuario['imagem'] : 'anonimo.png';
 
                             ?>
                                 <tr>
