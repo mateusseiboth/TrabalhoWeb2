@@ -37,7 +37,7 @@ function cadastrarEmpresa($nome, $telefone, $email, $declara, $cnpj) {
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        echo"<script language='javascript' type='text/javascript'>alert('Enviado');window.location.href='cadastrar.php'</script>";
+        header("Location:loading.php");
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='cadastrar.php'</script>";
     }
@@ -50,7 +50,7 @@ function cadastrarDeclaracao($mes, $empresaid, $declaracaoid) {
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        echo"<script language='javascript' type='text/javascript'>alert('Enviado');window.location.href='declaracao.php'</script>";
+        header("Location:loading.php");
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='declaracao.php'</script>";
     }
@@ -63,7 +63,7 @@ function cadastrarTipo($nome) {
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        echo"<script language='javascript' type='text/javascript'>alert('Enviado');window.location.href='tipo.php'</script>";
+        header("Location:loading.php");
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='tipo.php'</script>";
     }
@@ -129,7 +129,7 @@ function alterarEstado($id, $estado){
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        echo"<script language='javascript' type='text/javascript'>alert('Atualizado');window.location.href='listar.php'</script>";
+        header("Location:loading.php");
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='listar.php'</script>";
     }
@@ -150,7 +150,7 @@ function atualizaEmpresa($id, $nome, $telefone, $email, $declara, $cnpj) {
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        echo"<script language='javascript' type='text/javascript'>alert('Enviado');window.location.href='listar.php'</script>";
+        header("Location:loading.php");
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='listar.php'</script>";
     }
@@ -163,7 +163,7 @@ function cadastrarUsuario($username, $senha, $tipo) {
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        echo"<script language='javascript' type='text/javascript'>alert('Enviado');window.location.href='admUsuarios.php'</script>";
+        header("Location:loading.php");
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='admUsuarios.php'</script>";
     }
