@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: db
--- Tempo de geração: 03-Dez-2022 às 16:26
--- Versão do servidor: 8.0.31
--- versão do PHP: 8.0.19
+-- Host: lamp-mysql-1
+-- Generation Time: Dec 06, 2022 at 09:36 PM
+-- Server version: 8.0.31
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `ACCAP`
+-- Database: `ACCAP`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `declaracao`
+-- Table structure for table `declaracao`
 --
 
 CREATE TABLE `declaracao` (
@@ -37,7 +37,7 @@ CREATE TABLE `declaracao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `declaracao`
+-- Dumping data for table `declaracao`
 --
 
 INSERT INTO `declaracao` (`id`, `nome`, `usuario_id`, `empresa_id`, `tipoID`, `data_cadastro`) VALUES
@@ -45,12 +45,13 @@ INSERT INTO `declaracao` (`id`, `nome`, `usuario_id`, `empresa_id`, `tipoID`, `d
 (13, 'Janeiro', 6, 11, 7, '2022-10-27 23:28:47'),
 (14, 'Fevereiro', 6, 12, 9, '2022-12-03 13:05:03'),
 (15, 'Março', 6, 12, 8, '2022-12-03 15:51:12'),
-(16, 'Setembro', 6, 15, 8, '2022-12-03 15:51:35');
+(16, 'Setembro', 6, 15, 8, '2022-12-03 15:51:35'),
+(17, 'Fevereiro', 6, 17, 8, '2022-12-06 21:24:09');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `empresa`
+-- Table structure for table `empresa`
 --
 
 CREATE TABLE `empresa` (
@@ -64,7 +65,7 @@ CREATE TABLE `empresa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `empresa`
+-- Dumping data for table `empresa`
 --
 
 INSERT INTO `empresa` (`id`, `nome`, `email`, `telefone`, `ativo`, `declara`, `CNPJ`) VALUES
@@ -72,12 +73,14 @@ INSERT INTO `empresa` (`id`, `nome`, `email`, `telefone`, `ativo`, `declara`, `C
 (12, 'RYMTech', 'rym@oseu.com.br', '67999999999', 1, 'DAS, Federal', '35803810000160'),
 (13, 'Teste', 'teste@sim.com', '79837363', 1, 'DAS', '646464664'),
 (14, 'Empresa', 'empresa@empresa.com', '67676767676676', 1, 'Municipal', '7848743743787834'),
-(15, 'mateus', 'teste@ewds.com', '6464646464', 1, 'Municipal', '8838838383');
+(15, 'mateus', 'teste@ewds.com', '6464646464', 1, 'Municipal', '8838838383'),
+(16, 'Junior ben10 carros', 'juniorben10@yahoo.com.br', '67989547514', 1, 'DAS, Municipal', '45345355335345'),
+(17, 'Site nota 10', 'nota10@osshiro.com.br', '78999999999', 1, 'DAS, Federal', '78547898995474');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tipoDeclaracao`
+-- Table structure for table `tipoDeclaracao`
 --
 
 CREATE TABLE `tipoDeclaracao` (
@@ -86,19 +89,18 @@ CREATE TABLE `tipoDeclaracao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `tipoDeclaracao`
+-- Dumping data for table `tipoDeclaracao`
 --
 
 INSERT INTO `tipoDeclaracao` (`id`, `nome`) VALUES
 (7, 'DAS'),
 (8, 'Municipal'),
-(9, 'Federal'),
-(10, 'SeLeuMamou');
+(9, 'Federal');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -110,20 +112,21 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `username`, `senha`, `nivel`, `imagem`) VALUES
 (6, 'teste', 'teste', 1, ''),
 (7, 'Jucilene', '12345', 0, ''),
-(8, 'ricardo', 'queridao', 1, '02d11fbe626b17476c57f7f2fac983c62cec1727.png');
+(8, 'ricardo', 'queridao', 1, '02d11fbe626b17476c57f7f2fac983c62cec1727.png'),
+(9, 'Osshiro', 'nota10', 1, '44e19defb8d5b523b5470d32bde8789e6f89daf0.jpg');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `declaracao`
+-- Indexes for table `declaracao`
 --
 ALTER TABLE `declaracao`
   ADD PRIMARY KEY (`id`),
@@ -132,59 +135,59 @@ ALTER TABLE `declaracao`
   ADD KEY `DeclaracaoTipo` (`tipoID`);
 
 --
--- Índices para tabela `empresa`
+-- Indexes for table `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `CNPJ` (`CNPJ`);
 
 --
--- Índices para tabela `tipoDeclaracao`
+-- Indexes for table `tipoDeclaracao`
 --
 ALTER TABLE `tipoDeclaracao`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `declaracao`
+-- AUTO_INCREMENT for table `declaracao`
 --
 ALTER TABLE `declaracao`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT de tabela `empresa`
+-- AUTO_INCREMENT for table `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT de tabela `tipoDeclaracao`
+-- AUTO_INCREMENT for table `tipoDeclaracao`
 --
 ALTER TABLE `tipoDeclaracao`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de tabela `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `declaracao`
+-- Constraints for table `declaracao`
 --
 ALTER TABLE `declaracao`
   ADD CONSTRAINT `DeclaracaoTipo` FOREIGN KEY (`tipoID`) REFERENCES `tipoDeclaracao` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
