@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //chamada após submit
             <h3 class="card-title">Cadastrar novo tipo de declaração</h3>
         </div>
         <div class="card-body list-group list-group-flush" style="margin: 8px;">
-            <form accept-charset="UTF-8" role="form" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]); ?>" method="post">
+            <form accept-charset="UTF-8" role="form" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                 <fieldset>
                     <div class="col-auto" style="margin-top: 2px;">
                         <div class="input-group mb-3">
