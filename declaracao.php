@@ -26,7 +26,7 @@ $tipoDeclara = buscarTipoDeclaracao();
             <h3 class="card-title">Cadastro de envio de declaração</h3>
         </div>
         <div class="card-body" style="margin: 8px;">
-            <form accept-charset="UTF-8" role="form" action="<?= $_SERVER['PHP_SELF'] ?>"  ?>" method="post">
+            <form accept-charset="UTF-8" role="form" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
                 <fieldset>
                     <div class="col-auto" style="margin-top: 2px;">
                         <div class="input-group mb-auto">
