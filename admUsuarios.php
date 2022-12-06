@@ -43,8 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
                                 </div>
 
                                 <div class="input-group mb-3">
-                                    <div class="input-group-text"><i class="fa fa-address-card fa-fw "></i></div>
-                                    <input type="text" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                                    <div class="input-group-text"><i class="fa fa-key fa-fw "></i></div>
+                                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
                                 </div>
 
                                 <div class="input-group mb-3">
