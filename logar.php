@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
                 <h3>Login</h3>
             </div>
             <div class="card-body">
-                <form accept-charset="UTF-8" role="form" action="<?= $_SERVER[" PHP_SELF "] ?>"  method="post">
+                <form accept-charset="UTF-8" role="form" action="<?= $_SERVER['PHP_SELF'] ?>"   method="post">
                     <fieldset>
                         <div class="col-lg-12" style="margin-top: 2px">
                             <div class="input-group">
