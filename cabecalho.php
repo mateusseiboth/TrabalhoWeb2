@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>ACCAP Management v0.1</title>
+    <title>Finance Management v0.2</title>
     <link href="css/font-awesome.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet" />
@@ -17,7 +17,7 @@
 <body>
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">ACCAP</a>
+            <a class="navbar-brand" href="index.php"><img src="img/index.png"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
