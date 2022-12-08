@@ -32,6 +32,7 @@ if ($empresas == null) {
                             <th style="text-align: center">Email</th>
                             <th style="text-align: center">Declarações</th>
                             <th style="text-align: center">Situação</th>
+                            <th style="text-align: center">Cadastrador por:</th>
                             <th style="text-align: center">Ações</th>
                         </tr>
                     </thead>
@@ -51,6 +52,14 @@ if ($empresas == null) {
                                 <?php } else { ?>
                                     <td class="bg-danger">Inativo</td>
                                 <?php } ?>
+
+                              
+                                <?php if ($empresa['userCad'] == null) { ?>
+                                    <td class="">Importado de outro banco</td>
+                                <?php } else { ?>
+                                    <td class=""><?php echo $empresa['userCad']?></td>
+                                    <?php } ?>
+
 
                                 <td class="pull-right"><a class="btn btn-primary" href="editar.php?id=<?= $empresa['id'] ?>">Editar</a>
                                     <a class="btn btn-danger" href="mudarEstado.php?id=<?= $empresa['id'] ?>&ativo=<?= $empresa['ativo'] ?>">Ativar/Desativar</a>
