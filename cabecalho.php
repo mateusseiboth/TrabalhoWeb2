@@ -1,3 +1,5 @@
+<?php session_start();
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -10,8 +12,7 @@
     <link href="css/style.css" rel="stylesheet" />
     <script src="js/bootstrap.min.js"></script>
 
-    <?php session_start();
-    ?>
+    
 </head>
 
 <body>
@@ -28,7 +29,7 @@
                     if (!isset($_SESSION["logado"]) || $_SESSION["logado"] != TRUE) {
                     ?>
 
-                    <<form class="form-inline my-2 my-lg-0" action="logar.php">
+                    <form class="form-inline my-2 my-lg-0" action="logar.php">
                         <button class="btn btn-outline-success my-2 my-sm-0 align-content-end pull-right justify-content-end" type="submit">Login</button>
                     </form>
                 </ul>
