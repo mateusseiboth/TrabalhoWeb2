@@ -1,17 +1,17 @@
 <?php
 include 'cabecalho.php';
 include 'banco.php';
-
-
+$user = $_SESSION['id'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
 
     $empresaid = $_POST['empresa'];
     $declaracaoid = $_POST['declaracao'];
     $mes = $_POST['mes'];
+    
 
 
-    cadastrarDeclaracao($mes, $empresaid, $declaracaoid);
+    cadastrarDeclaracao($mes, $empresaid, $declaracaoid, $user);
 }
 
 $empresas = buscarEmpresas();

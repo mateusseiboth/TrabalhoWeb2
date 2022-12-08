@@ -3,7 +3,7 @@
 function buscarEmpresas(){
     include 'conecta.php';
     $empresas = array();
-    $res = mysqli_query($conexao, "select em.nome, em.CNPJ, em.telefone, em.declara, em.email, em.ativo, us.username as userCad from empresa em left join usuario us on em.userCadastro = us.id;") or die("erro ao selecionar");
+    $res = mysqli_query($conexao, "select em.id, em.nome, em.CNPJ, em.telefone, em.declara, em.email, em.ativo, us.username as userCad from empresa em left join usuario us on em.userCadastro = us.id;") or die("erro ao selecionar");
     while ($row = mysqli_fetch_assoc($res)) {
         array_push($empresas, $row);
     }
@@ -31,26 +31,26 @@ function usuarios() {
 }
 
 
-function cadastrarEmpresa($nome, $telefone, $email, $declara, $cnpj) {
+function cadastrarEmpresa($nome, $telefone, $email, $declara, $cnpj, $user) {
     include 'conecta.php';
-    $query = "insert into empresa (nome, telefone, email, declara, ativo, cnpj) values ('{$nome}', '{$telefone}', '{$email}', '{$declara}', '1', '{$cnpj}')";
+    $query = "insert into empresa (nome, telefone, email, declara, ativo, cnpj, userCadastro) values ('{$nome}', '{$telefone}', '{$email}', '{$declara}', '1', '{$cnpj}', '{$user}')";
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        header("Location:loading.php");
+        echo"<script language='javascript' type='text/javascript'>alert('Sucesso');window.location.href='cadastrar.php'</script>";
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='cadastrar.php'</script>";
     }
     
 }
 
-function cadastrarDeclaracao($mes, $empresaid, $declaracaoid) {
+function cadastrarDeclaracao($mes, $empresaid, $declaracaoid, $user) {
     include 'conecta.php';
-    $query = "insert into declaracao (nome, usuario_id, empresa_id, tipoID) values ('{$mes}', '{$_SESSION['id']}', '{$empresaid}', '{$declaracaoid}')";
+    $query = "insert into declaracao (nome, usuario_id, empresa_id, tipoID) values ('{$mes}', '{$user}', '{$empresaid}', '{$declaracaoid}')";
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        header("Location:loading.php");
+        echo"<script language='javascript' type='text/javascript'>alert('Sucesso');window.location.href='declaracao.php'</script>";
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='declaracao.php'</script>";
     }
@@ -63,7 +63,8 @@ function cadastrarTipo($nome) {
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        header("Location:loading.php");
+        echo"<script language='javascript' type='text/javascript'>alert('Cadastrado');window.location.href='tipo.php'</script>";
+
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='tipo.php'</script>";
     }
@@ -74,7 +75,7 @@ function checarUsuario($username, $password){
     include 'conecta.php';
     $res = mysqli_query($conexao, "select * from usuario where username = '$username' and senha = '$password';") or die("erro ao selecionar");
     if (mysqli_num_rows($res) <= 0) {
-        header("Location:loading.php");
+        echo"<script language='javascript' type='text/javascript'>alert('Usuario ou senha está errado');window.location.href='logar.php'</script>";
         die("Erro ao conectar");
     } else {
         $usuario = mysqli_fetch_assoc($res);
@@ -129,7 +130,7 @@ function alterarEstado($id, $estado){
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        header("Location:loading.php");
+        echo"<script language='javascript' type='text/javascript'>alert('Alterado');window.location.href='listar.php'</script>";
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='listar.php'</script>";
     }
@@ -150,7 +151,8 @@ function atualizaEmpresa($id, $nome, $telefone, $email, $declara, $cnpj) {
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        header("Location:loading.php");
+        echo"<script language='javascript' type='text/javascript'>alert('Atualizado');window.location.href='listar.php'</script>";
+
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='listar.php'</script>";
     }
@@ -163,7 +165,7 @@ function cadastrarUsuario($username, $senha, $tipo, $foto) {
     $result = mysqli_query($conexao, $query);
 
     if ($result) {
-        header("Location:loading.php");
+        echo"<script language='javascript' type='text/javascript'>alert('Cadastrado');window.location.href='admUsuarios.php'</script>";
     } else {
         echo"<script language='javascript' type='text/javascript'>alert('Erro ao enviar');window.location.href='admUsuarios.php'</script>";
     }
