@@ -13,8 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //chamada após submit
     $cnpj = $_POST['cnpj'];
 
     $str = implode(", ", $declara);
+    $user = $_SESSION['id'];
 
-    cadastrarEmpresa($nome, $telefone, $email, $str, $cnpj);
+    cadastrarEmpresa($nome, $telefone, $email, $str, $cnpj, $user);
 }
 
 ?>
