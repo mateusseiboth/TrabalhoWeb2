@@ -3,7 +3,7 @@
 function buscarEmpresas(){
     include 'conecta.php';
     $empresas = array();
-    $res = mysqli_query($conexao, "select * from empresa;") or die("erro ao selecionar");
+    $res = mysqli_query($conexao, "select em.nome, em.CNPJ, em.telefone, em.declara, em.email, em.ativo, us.username as userCad from empresa em left join usuario us on em.userCadastro = us.id;") or die("erro ao selecionar");
     while ($row = mysqli_fetch_assoc($res)) {
         array_push($empresas, $row);
     }
@@ -74,7 +74,7 @@ function checarUsuario($username, $password){
     include 'conecta.php';
     $res = mysqli_query($conexao, "select * from usuario where username = '$username' and senha = '$password';") or die("erro ao selecionar");
     if (mysqli_num_rows($res) <= 0) {
-        echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.php';</script>";
+        header("Location:loading.php");
         die("Erro ao conectar");
     } else {
         $usuario = mysqli_fetch_assoc($res);
