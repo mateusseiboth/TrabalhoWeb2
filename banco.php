@@ -145,9 +145,9 @@ function buscarEmpresa($id){
     return $empresas;
 }
 
-function atualizaEmpresa($id, $nome, $telefone, $email, $declara, $cnpj) {
+function atualizaEmpresa($id, $nome, $telefone, $email, $declara, $cnpj, $iduser) {
     include 'conecta.php';
-    $query = "update empresa set nome = '{$nome}', telefone =  '{$telefone}', email = '{$email}', declara = '{$declara}', cnpj = '{$cnpj}' where id = '{$id}';";
+    $query = "update empresa set nome = '{$nome}', telefone =  '{$telefone}', email = '{$email}', declara = '{$declara}', cnpj = '{$cnpj}', userCadastro = '{$iduser}' where id = '{$id}';";
     $result = mysqli_query($conexao, $query);
 
     if ($result) {

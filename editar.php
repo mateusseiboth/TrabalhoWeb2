@@ -15,10 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //chamada após submit
     $email = $_POST['email'];
     $declara = $_POST['declara'];
     $cnpj = $_POST['cnpj'];
+    $iduser = $_SESSION['id'];
 
     $str = implode(", ", $declara);
 
-    atualizaEmpresa($id, $nome, $telefone, $email, $str, $cnpj);
+    atualizaEmpresa($id, $nome, $telefone, $email, $str, $cnpj, $iduser);
 } 
 
 ?>
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){ //chamada após submit
             <h3 class="card-title">Cadastro de empresa</h3>
         </div>
         <div class="card-body list-group list-group-flush" style="margin: 8px;">
-            <form accept-charset="UTF-8" role="form" action="<?= $_SERVER['PHP_SELF'] ?>"  method="post">
+            <form accept-charset="UTF-8" role="form" action="<?= $_SERVER['PHP_SELF'].'?id='.$id ?>"  method="post">
                 <fieldset>
                     <div class="col-auto" style="margin-top: 2px;">
                         <div class="input-group mb-3">
